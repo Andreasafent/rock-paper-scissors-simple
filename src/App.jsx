@@ -81,7 +81,7 @@ function App() {
 
     return (
         <div className="flex items-center justify-center bg-orange-400 h-[100vh]">
-            <div className="flex flex-col items-center justify-between w-[80vw] h-[90vh] bg-white shadow-xl rounded-3xl p-10 sm:p-15">
+            <div className={`flex flex-col items-center justify-between w-[80vw] h-[90vh] bg-white shadow-xl rounded-3xl p-10 sm:p-15 ${(started && showResult) ? 'border-10' : 'border-0'} ${ draw ? 'border-gray-500' : (winner ? 'border-green-500' : 'border-red-500')}`}>
                 <div className="w-full text-center sm:text-right">
                     <p className="text-md sm:text-xl">Computer: <span className="font-bold">{computerScore}</span></p>
                     <p className="text-md sm:text-xl">You: <span className="font-bold">{score}</span></p>
@@ -116,7 +116,7 @@ function App() {
                 }
                 {
                     started && (
-                        <div className="flex flex-col items-center gap-4 mt-5">
+                        <div className="flex flex-col items-center gap-4">
                             {showResult && (
                                 renderResultButton()
                             )}

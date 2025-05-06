@@ -1,0 +1,5 @@
+{
+  "appId": "com.rps.app",
+  "appName": "rock-paper-scissors-simple",
+  "webDir": "dist"
+}
