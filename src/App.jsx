@@ -25,7 +25,7 @@ function App() {
         setStarted(true);
         const rand = Math.floor(Math.random() * 3);
         const computer = choices[rand];
-        
+
         setChoice(value);
         setComputerChoice(computer);
 
@@ -39,7 +39,7 @@ function App() {
             setWinner(null);
         } else if (rules[value] === computer) {
             setTimeout(() => {
-                setScore(prev => prev + 1);                
+                setScore(prev => prev + 1);
             }, 1000);
             setWinner(true);
             setDraw(false)
@@ -81,22 +81,22 @@ function App() {
 
     return (
         <div className="flex items-center justify-center bg-orange-400 h-[100vh]">
-            <div className="flex flex-col items-center justify-between w-[60vw] h-[80vh] bg-white shadow-xl rounded-3xl p-15 gap-5">
-                <div className="w-full text-end">
-                    <p className="text-xl">Computer: <span className="font-bold">{computerScore}</span></p>
-                    <p className="text-xl">You: <span className="font-bold">{score}</span></p>
+            <div className="flex flex-col items-center justify-between w-[80vw] h-[90vh] bg-white shadow-xl rounded-3xl p-10 sm:p-15">
+                <div className="w-full text-center sm:text-right">
+                    <p className="text-md sm:text-xl">Computer: <span className="font-bold">{computerScore}</span></p>
+                    <p className="text-md sm:text-xl">You: <span className="font-bold">{score}</span></p>
                 </div>
-                <div className="flex items-between justify-between gap-13">
+                <div className="flex flex-col lg:flex-row items-between justify-between gap-5 lg:gap-15">
                     {
                         choices.map((value, index, array) => (
                             <button
                                 key={index}
-                                className="rounded-full w-40 h-40 bg-yellow-400 flex items-center justify-center cursor-pointer"
+                                className="rounded-full w-25 h-25 bg-yellow-400 flex items-center justify-center cursor-pointer lg:w-40 lg:h-40"
                                 onClick={() => handleClick(value)}
                             >
-                                {value === 'rock' && <Grab size={100} />}
-                                {value === 'paper' && <HandIcon size={100} />}
-                                {value === 'scissors' && <Scissors size={100} />}
+                                {value === 'rock' && <Grab size={66} />}
+                                {value === 'paper' && <HandIcon size={66} />}
+                                {value === 'scissors' && <Scissors size={66} />}
                             </button>
                         ))
                     }
@@ -104,13 +104,13 @@ function App() {
                 {
                     choice ? (
 
-                        <div className="flex flex-col items-center">
-                            <p className='text-xl'>You choose: <span className="font-bold uppercase">{choice}</span> </p>
-                            <p className='text-xl'>Computer chose: <span className="font-bold uppercase">{showResult ? (computerChoice) : ('Thinking...')}</span></p>
+                        <div className="flex flex-col items-center justify-center text-center text-md sm:text-xl">
+                            <p className=''>You choose: <span className="font-bold uppercase">{choice}</span> </p>
+                            <p className=''>Computer chose: <span className="font-bold uppercase">{showResult ? (computerChoice) : ('Thinking...')}</span></p>
                         </div>
                     ) : (
                         <div className="flex items-center">
-                            <p className="text-xl font-bold">Choose Your Weapon</p>
+                            <p className="text-md sm:text-xl font-bold text-center">Choose Your Weapon</p>
                         </div>
                     )
                 }
